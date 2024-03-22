@@ -29,7 +29,7 @@ const ContactForm = ({onAdd}) => {
         <label className={css.label}>
           <span>Name</span>
           <Field className={css.field} type='text' name='name' placeholder='Please enter your name' /> 
-          <ErrorMessage component="p" name="userName" />
+          <ErrorMessage component="p" name="name" />
         </label>
         <label className={css.label}>
           <span>Number</span>
