@@ -4,37 +4,51 @@ import ContactForm from './components/ContactForm/ContactForm'
 import SearchBox from './components/SearchBox/SearchBox'
 import ContactList from './components/ContactList/ContactList'
 import usersData from './userData.json'
+import { nanoid } from 'nanoid'
 
 
 function App() {
   const [users, setUsers] = useState(() => {
     const stringifiedUsers= localStorage.getItem('users')
     if (!stringifiedUsers) return usersData;
-    console.log('usersData: ', usersData);
     const localUsers = JSON.parse(stringifiedUsers);
     return localUsers;
   });
-
-   useEffect(() => {
+  const [inputValue, setInputValue] = useState("");
+  
+    useEffect(() => {
     localStorage.setItem("users", JSON.stringify(users));
-  }, [users]);
+    }, [users]);
+  
+  const addUser = (formData) => {
+    
+    const finalUser = {
+      ...formData,
+      id: nanoid(),
+    }
+    setUsers((prevState) => [...prevState, finalUser]);
+   
+  }
+  const onDeleteUser = (userId) => {
+    setUsers(prevUsers => prevUsers.filter(user => user.id !== userId));
+}
 
+ 
 
-    const[inputValue, setInputValue] = useState("");
-    function handleInput(e) {
-        setInputValue(e.target.value)
+  
+  
+    function handleInput(event) {
+        setInputValue(event.target.value)
     }
     
-  const filteredUsers = users.toLowerCase
-  console.log('users: ', users);
-  console.log('filteredUsers: ', filteredUsers);
+  const filteredUsers = users.filter(user=>user.name.toLowerCase().includes(inputValue.toLowerCase()))
   
   return (
 <div>
   <h1>Phonebook</h1>
-  <ContactForm />
-      <SearchBox inputValue={ inputValue} onHandleInput={handleInput}  />
-  <ContactList users = {filteredUsers} />
+  <ContactForm onAdd = {addUser} />
+  <SearchBox inputValue = { inputValue} handleInput = {handleInput}  />
+  <ContactList users = {filteredUsers} onDeleteUser = {onDeleteUser} />
 </div>
   )
 }

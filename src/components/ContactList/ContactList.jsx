@@ -2,7 +2,7 @@ import Contact from "../Contact/Contact"
 import css from './ContactList.module.css'
 
 
-const ContactList = ({users}) => {
+const ContactList = ({users, onDeleteUser}) => {
   
   return (
       <ul className={css.contactList}>
@@ -11,7 +11,7 @@ const ContactList = ({users}) => {
             return (
               <Contact
                 key={user.id}
-                // onDeleteUser={onDeleteUser}
+                onDeleteUser={onDeleteUser}
                 user= {user}
               />
                    );
