@@ -1,12 +1,13 @@
 import css from './Contact.module.css'
-
+import { HiUser } from "react-icons/hi";
+import { FaPhoneAlt } from "react-icons/fa";
 const Contact = ({user, onDeleteUser}) => {
  
   return (
       <div className={css.wrap}>
           <div className={css.contact}>
-              <div>😎 {user.name}</div>
-              <div>📞 {user.number}</div>
+              <div><HiUser />  {user.name}</div>
+              <div><FaPhoneAlt size="14"/>  {user.number}</div>
           </div>
           <button type="button" onClick={() => onDeleteUser(user.id)}>Delete</button>
          

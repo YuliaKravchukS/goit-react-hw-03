@@ -11,9 +11,10 @@
 }
 .wrap button {
   border: 1px solid rgb(57, 55, 55);
-  transition: border 250ms ease-in;
+  transition: border 250ms ease-in, box-shadow 250ms ease-in;
 }
 .wrap button:hover,
 .wrap button:focus {
   border: 1px solid rgb(100, 161, 192);
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 15px, rgba(0, 0, 0, 0.23) 0px 6px 4px;
 }

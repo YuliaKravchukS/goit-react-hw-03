@@ -1,0 +1,12 @@
+.labelSearch {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 325px;
+}
+.inputSearch {
+  height: 20px;
+  border-radius: 4px;
+  padding: 4px;
+  border: 2px solid rgb(47, 59, 66);
+}
