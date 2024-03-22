@@ -1,11 +1,11 @@
 
-const SearchBox = ({inputValue,handleInput}) => {
+const SearchBox = ({value, handleInput}) => {
   
     return (
         <label >
             <span>Find contacts by name</span>
             <input type="text"
-                value={inputValue}
+                value={value}
          onChange={handleInput}   />   
       </label>
     

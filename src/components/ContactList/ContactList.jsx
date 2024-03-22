@@ -9,11 +9,12 @@ const ContactList = ({users, onDeleteUser}) => {
            {Array.isArray(users) &&
           users.map((user) => {
             return (
+              <li key={user.id}>
               <Contact
-                key={user.id}
                 onDeleteUser={onDeleteUser}
                 user= {user}
-              />
+                />
+                </li>
                    );
           })}
      </ul>
