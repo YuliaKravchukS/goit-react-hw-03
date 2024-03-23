@@ -6,8 +6,8 @@ const Contact = ({user, onDeleteUser}) => {
   return (
       <div className={css.wrap}>
           <div className={css.contact}>
-              <div><HiUser />  {user.name}</div>
-              <div><FaPhoneAlt size="14"/>  {user.number}</div>
+              <div className={css.contactField}><HiUser />  {user.name}</div>
+              <div className={css.contactField}><FaPhoneAlt size="14"/>  {user.number}</div>
           </div>
           <button type="button" onClick={() => onDeleteUser(user.id)}>Delete</button>
          
